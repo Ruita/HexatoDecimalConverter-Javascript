@@ -1,0 +1,379 @@
+<!-- My name is Ruita Ubale Id:-86491 I used html, css and javascript.-->
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+
+
+table.one
+ {
+    
+    border: 3px solid #a1a1a1;
+    padding: 20px 50px; 
+    background: pink;
+    width: 300px;
+    border-radius: 25px;
+}
+header 
+{
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;   
+}
+
+
+footer 
+{
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px;     
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h2><marquee>My Hex Converter(32X32 bit)</marquee></h2>
+</header>
+
+
+<section>
+
+<p>
+<script type="text/javascript">
+
+	function calculate() 
+	{
+	
+	if(document.getElementById("dec").checked==true)
+	{
+	var x = document.getElementById("number").value;
+	 {
+	if(hex_dec(x)==false)
+		{
+			
+			window.alert("Invalid Hex value! Please enter value between 0-9 and A-F.");
+			document.getElementById("number").value = "";
+			
+			return 0;
+		}
+	
+		else
+		{
+		<!-- converting hex value in decimal-->
+	       var dec = parseInt(x,16);
+	       document.getElementById("result").value=dec;
+			
+	   }
+	 }
+	}
+			
+		if(document.getElementById("hex").checked==true)
+		{
+		 var b = document.getElementById("result").value;
+	
+		{
+		if (isNaN(b))
+		 
+	     {
+	
+			alert("Invalid Decimal value! Please enter number");
+			document.getElementById("result").value = "";
+			
+			return 0;
+		}
+		else if (b>4294967295)
+		{
+		   alert("Invalid Decimal value! Please enter value less than 4294967296 ");
+		}
+		else
+		{
+	       <!-- converting decimal value in hex-->
+			var y = parseInt(b,10);
+			var hex = y.toString(16).toUpperCase();
+			document.getElementById("number").value=hex;
+			
+		}
+		
+	 }
+	 }
+	 if(document.getElementById("dec").checked==false && document.getElementById("hex").checked==false)
+	 {
+	 alert("Please select converter type!");
+	 }
+	 
+}
+function hex_dec(value)
+{
+	var range='0123456789ABCDEF';
+	var valid_str=true;
+	var g=value.toUpperCase();
+	for(y=0;y<g.length;y++)
+	{
+		if(range.indexOf(g.charAt(y))<0)
+		{
+			return false;
+		}
+  	}
+	return true;
+}
+</script>
+<script type="text/javascript">
+
+
+function addition()
+{
+
+if(document.getElementById("num1").value=="" || document.getElementById("num2").value=="")
+{
+ alert("Two numbers are required for any calculation!");
+ 
+}
+ if(document.getElementById("add").checked==true)
+ {
+ 
+ var x=document.getElementById("num1").value;
+var y=document.getElementById("num2").value;
+
+{
+ if(hex_num(x)==false || hex_num(y)==false)
+		{
+			
+			window.alert("Invalid Hex value! Please enter value between 0-9 and A-F.");
+			document.getElementById("num1").value = "";
+			document.getElementById("num2").value = "";
+			return 0;
+		}
+		else
+		{
+		var dec1 = parseInt(x,16);
+
+		var dec2 = parseInt(y,16);
+
+ 		document.getElementById("sub").checked = false;
+		document.getElementById("multi").checked = false;
+		document.getElementById("div").checked = false;
+		var z=eval(dec1)+eval(dec2);
+		var new_hex=z.toString(16);
+		document.getElementById("total").value = new_hex;
+		document.getElementById("total2").value = "";
+		}
+}
+}
+ if(document.getElementById("sub").checked==true)
+ {
+ var x=document.getElementById("num1").value;
+var y=document.getElementById("num2").value;
+ {
+ if(hex_num(x)==false || hex_num(y)==false)
+		{
+			
+			window.alert("Invalid Hex value! Please enter value between 0-9 and A-F.");
+			document.getElementById("num1").value = "";
+			document.getElementById("num2").value = "";
+			return 0;
+		}
+		else
+		{
+            var dec1 = parseInt(x,16);
+
+		    var dec2 = parseInt(y,16);
+
+ 			var a=eval(dec1)-eval(dec2);
+			var sub_hex=a.toString(16);
+			document.getElementById("total").value = sub_hex;
+			document.getElementById("total2").value = "";
+		}
+	}
+	}
+if(document.getElementById("multi").checked==true)
+{
+ var x=document.getElementById("num1").value;
+ var y=document.getElementById("num2").value;
+ {
+ if(hex_num(x)==false || hex_num(y)==false)
+		{
+			
+			window.alert("Invalid Hex value! Please enter value between 0-9 and A-F.");
+			document.getElementById("num1").value = "";
+			document.getElementById("num2").value = "";
+			return 0;
+		}
+		else
+	{
+		var dec1 = parseInt(x,16);
+
+		var dec2 = parseInt(y,16);
+		var a=eval(dec1)* eval(dec2);
+		var sub_hex=a.toString(16);
+		document.getElementById("total").value = sub_hex;
+		var str=sub_hex.length;
+		if (str<=8)
+		{
+		document.getElementById("total2").value=0;
+		}
+		else
+		{
+		var len=str-8;
+		var msb=sub_hex.substring(0,len);
+		document.getElementById("total2").value = msb;
+       }
+    }
+  }
+}
+if(document.getElementById("div").checked==true)
+{
+ var x=document.getElementById("num1").value;
+ var y=document.getElementById("num2").value;
+ {
+ if(hex_num(x)==false || hex_num(y)==false)
+		{
+			
+			window.alert("Invalid Hex value! Please enter value between 0-9 and A-F.");
+			document.getElementById("num1").value = "";
+			document.getElementById("num2").value = "";
+			return 0;
+		}
+		else
+		{
+		var dec1 = parseInt(x,16);
+
+		var dec2 = parseInt(y,16);
+ 		var a=eval(dec1)/ eval(dec2);
+		var sub_hex=a.toString(16);
+		document.getElementById("total").value = sub_hex;
+		var b=eval(dec1)% eval(dec2);
+		var remainder=b.toString(16);
+		document.getElementById("total2").value = remainder;
+		}
+		}
+	}
+if(document.getElementById("add").checked==false && document.getElementById("sub").checked==false && document.getElementById("multi").checked==false &&
+document.getElementById("div").checked==false)
+{
+alert("Please select any one operation from radio button!");
+}
+
+}
+function hex_num(value)
+{
+	var range='0123456789ABCDEF';
+	var valid_str=true;
+	var g=value.toUpperCase();
+	for(i=0;i<g.length;i++)
+	{
+		if(range.indexOf(g.charAt(i))<0)
+		{
+			return false;
+		}
+  	}
+	return true;
+}
+</script>
+<script>
+function clear_txt()
+{
+document.getElementById("number").value = "";
+document.getElementById("result").value = "";
+}
+</script>
+<script>
+function clear_field()
+{
+document.getElementById("num1").value="";
+document.getElementById("num2").value="";
+document.getElementById("total").value = "";
+document.getElementById("total2").value = "";
+}
+</script>
+
+
+<table style="width:50%" align="center" class="one">
+  <tr>
+    <td>Hex number:</td>
+    <td><input type="text" name="num_ber" id="number" maxlength="8"></td>   
+    
+  </tr>
+  <tr>
+    <td>Decimal number:</td>
+    <td><input type="text" name="re_sult" id="result"></td>    
+  </tr>
+  <tr>
+<td>
+</td>
+    <td><input name="x" type="radio" value="decimal_val" id="dec" > Hex to Decimal</td>
+      
+  </tr>
+   <tr>
+<td>
+</td>
+   <td><input name="x" type="radio" value="hex_val" id="hex" >Decimal to Hex</td>
+   </tr>
+   <tr>
+<td>
+</td>
+   <td><input type="button" onclick="calculate()" value="Submit">
+   <input type="button" onclick="clear_txt()" value="Clear"></td>
+   </tr>
+   
+</table>
+</p>
+</section>
+
+<table width="100%" border="0" class="two">
+<td colspan="2" bgcolor="#b5dcb3">
+
+<h2><marquee>My Hex Calculator(32X32 bit)</marquee></h2>
+</td>
+</table>
+<table style="width:50%" align="center" class="one">
+  <tr>
+    <td>Enter first Hex number:</td>
+    <td><input type="text" name="num_1" id="num1" maxlength="8"></td>   
+    
+  </tr>
+  <tr>
+    <td>Enter second Hex Number </td>
+    <td><input type="text" name="num_2" id="num2" maxlength="8"></td>    
+  </tr>
+<tr>
+    <td>Result 1:</td>
+    <td><input type="text" name="result1" id="total" readonly></td>   
+    
+  </tr>
+<tr>
+    <td>Result 2:</td>
+    <td><input type="text" name="result2" id="total2" readonly></td>   
+    
+  </tr>
+  <tr>
+
+    <td><input name="rd1" type="radio" value="addition" id="add" > Addition</td>
+      
+    <td><input name="rd1" type="radio" value="subtraction" id="multi" >Multiplication</td>
+      
+  </tr>
+   <tr>
+    <td><input name="rd1" type="radio" value="sub" id="sub"> Subtraction</td>
+   <td><input name="rd1" type="radio" value="div" id="div">Division</td>
+   </tr>
+   <tr>
+<td>
+</td>
+   <td><input type="button" onclick="addition()" value="Submit">
+   <input type="button" onclick="clear_field()" value="Clear"></td>
+   </tr>
+   
+</table>
+<footer>
+Submitted by Ruita Ubale
+</footer>
+
+</body>
+</html>
